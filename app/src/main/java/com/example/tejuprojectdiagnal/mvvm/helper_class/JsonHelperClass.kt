@@ -12,6 +12,14 @@ import org.json.JSONObject
 
 class JsonHelperClass(private val context: Context) {
 
+    companion object{
+        private const val TAG = "JsonHelperClass"
+    }
+
+    init {
+        Log.e(TAG, "called: " )
+    }
+
     private fun convertJsonToString(@RawRes fileId: Int): String {
         val iStream: InputStream = context.resources.openRawResource(fileId)
         val size = iStream.available()
@@ -22,6 +30,7 @@ class JsonHelperClass(private val context: Context) {
     }
 
     fun convertStringToObject( @RawRes fileId: Int): ContentModel {
+        Log.e("Data", "convertStringToObject: called" )
         val data = convertJsonToString(fileId)
         Log.e("Data", "convertStringToObject: $data" )
         val jsonObject = JSONObject(data)

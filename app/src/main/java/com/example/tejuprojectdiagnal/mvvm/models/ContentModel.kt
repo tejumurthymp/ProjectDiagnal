@@ -11,7 +11,7 @@ data class ContentModel(
         var `total-Content-Items`: String?
     ) {
         data class ContentItems(
-            var content: List<Content?>?
+            var content: ArrayList<Content?>?
         ) {
             data class Content(
                 var name: String?,

@@ -1,8 +1,9 @@
 package com.example.tejuprojectdiagnal.mvvm.view_model
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.example.tejuprojectdiagnal.mvvm.models.ContentModel
 import com.example.tejuprojectdiagnal.mvvm.pagination.PagingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,7 +15,7 @@ class ContentViewModel @Inject constructor(
     private val pagingRepository: PagingRepository
 ): ViewModel() {
 
-    suspend fun getPagedContentList(context: Context): Flow<PagingData<ContentModel.Page.ContentItems.Content>> {
-        return pagingRepository.getFlowPagedData()
+    suspend fun getPagedContentList(): Flow<PagingData<ContentModel.Page.ContentItems.Content>> {
+        return pagingRepository.getFlowPagedData().cachedIn(viewModelScope)
     }
 }

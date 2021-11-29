@@ -17,5 +17,4 @@ object ApplicationLevelDi {
     @Provides
     fun getJsonHelper(@ApplicationContext context: Context): JsonHelperClass = JsonHelperClass(context)
 
-
 }

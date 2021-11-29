@@ -15,7 +15,7 @@ data class ContentModel(
         ) {
             data class Content(
                 var name: String?,
-                var `poster-Image`: String?
+                var `poster-image`: String?
             )
         }
     }
